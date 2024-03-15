@@ -23,7 +23,7 @@ This Python script implements a self-driving car system using computer vision te
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/username/repo.git
+git clone https://github.com/harshit-sharma1256/AutoMind-Glide.git
 ```
 2. The script will start capturing and processing images in real-time.
 
