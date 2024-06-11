@@ -1,6 +1,7 @@
-# AutoMind-Glide
+# PCSE24-18
+# Self-Driving Car with Deep Learning and IoT
 
-This Python script implements a self-driving car system using computer vision techniques and IoT capabilities. It captures real-time images from a Raspberry Pi camera module, processes them to detect lane markings, objects, and traffic signs, and makes driving decisions accordingly. The system utilizes OpenCV for image processing and RPi.GPIO for controlling GPIO pins for external devices.
+This repository contains an implementation of a self-driving car system utilizing deep learning and IoT technologies. The system is designed to capture real-time images from a camera module, process them using computer vision algorithms, detect lane markings, objects, traffic signs, and make driving decisions accordingly.
 
 ## Features
 
@@ -11,29 +12,75 @@ This Python script implements a self-driving car system using computer vision te
 - Automatic driving decisions based on detected objects and lane markings
 - IoT integration for controlling external devices (e.g., motors, lights)
 
-## Prerequisites
 
-- Python 3.x
-- OpenCV
-- picamera library
-- RPi.GPIO library
+## DEMO 
+1.Stop sign detection 
+
+
+https://github.com/harshit-sharma1256/AutoMind-Glide/assets/91192069/2e95fc37-bd39-4851-8444-fad4a8a72664
+
+
+
+
+2.Lane detection
+
+
+
+https://github.com/harshit-sharma1256/AutoMind-Glide/assets/91192069/08140ff0-0d87-43c4-949f-6705d9200025
+
+
+
+
+3.Obstacle detection
+
+
+
+https://github.com/harshit-sharma1256/AutoMind-Glide/assets/91192069/39f48ea6-af94-4838-90c3-e98d4cedd866
+
+
+
+
+
+
+
+  
+
+## Requirements
+
+- OpenCV 2.4.13 or later
+- Raspicam library
+- WiringPi library
 
 ## Installation
 
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/harshit-sharma1256/AutoMind-Glide.git
+git clone https://github.com/cse-kiet/PCSE24-18.git
 ```
-2. The script will start capturing and processing images in real-time.
 
-3. Detected objects, lane markings, and driving decisions will be displayed on the screen.
+2. Install OpenCV, Raspicam, and WiringPi libraries according to their respective documentation.
+
+3. Compile the code using a C++ compiler.
+
+## Usage
+
+1. Connect the camera module to your Raspberry Pi.
+2. Run the compiled executable with appropriate arguments to set camera parameters.
+3. The system will start capturing and processing images in real-time.
+4. Detected objects, lane markings, and driving decisions will be displayed on the screen.
+5. IoT integration allows for controlling external devices based on detected conditions.
 
 ## Code Structure
 
-- `self_driving_car.py`: Main Python script containing the self-driving car logic.
-- `README.md`: This file providing information about the project.
-- `cascade_files/`: Directory containing XML files for object detection using Haar cascades.
+- `main.cpp`: Main entry point of the program, contains the main logic for image processing, object detection, and driving decisions.
+- `utils.cpp`: Utility functions for camera setup, image processing, and object detection.
+- `cascade_files/`: Contains XML files for object detection using Haar cascades.
+- `images/`: Placeholder directory for sample images.
+
+## Contributors
+
+- Harshit Sharma (@harshit6981)
 
 
 ## License
@@ -42,7 +89,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- Special thanks to the OpenCV and Raspberry Pi communities for their contributions.
+- Special thanks to [OpenCV](https://opencv.org/) and [Raspicam](https://www.uco.es/investiga/grupos/ava/node/40) for their excellent libraries and documentation.
 - Inspired by advancements in autonomous driving technology.
-```
-
