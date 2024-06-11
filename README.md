@@ -1,4 +1,3 @@
-# PCSE24-18
 # Self-Driving Car with Deep Learning and IoT
 
 This repository contains an implementation of a self-driving car system utilizing deep learning and IoT technologies. The system is designed to capture real-time images from a camera module, process them using computer vision algorithms, detect lane markings, objects, traffic signs, and make driving decisions accordingly.
@@ -56,12 +55,12 @@ https://github.com/harshit-sharma1256/AutoMind-Glide/assets/91192069/39f48ea6-af
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/cse-kiet/PCSE24-18.git
+git clone https://github.com/harshit-sharma1256/AutoMind-Glide.git
 ```
 
 2. Install OpenCV, Raspicam, and WiringPi libraries according to their respective documentation.
 
-3. Compile the code using a C++ compiler.
+3. Run the code in your system.
 
 ## Usage
 
