@@ -1,4 +1,4 @@
-# Self-Driving Car with Deep Learning and IoT
+# Self-Driving Car using Deep Learning and IoT
 
 This repository contains an implementation of a self-driving car system utilizing deep learning and IoT technologies. The system is designed to capture real-time images from a camera module, process them using computer vision algorithms, detect lane markings, objects, traffic signs, and make driving decisions accordingly.
 
@@ -16,7 +16,10 @@ This repository contains an implementation of a self-driving car system utilizin
 1.Stop sign detection 
 
 
-https://github.com/harshit-sharma1256/AutoMind-Glide/assets/91192069/2e95fc37-bd39-4851-8444-fad4a8a72664
+
+https://github.com/harshit-sharma1256/AutoMind-Glide/assets/91192069/fa670731-534a-401b-83b6-a27c90a91320
+
+
 
 
 
@@ -34,7 +37,11 @@ https://github.com/harshit-sharma1256/AutoMind-Glide/assets/91192069/08140ff0-0d
 
 
 
-https://github.com/harshit-sharma1256/AutoMind-Glide/assets/91192069/39f48ea6-af94-4838-90c3-e98d4cedd866
+
+https://github.com/harshit-sharma1256/AutoMind-Glide/assets/91192069/2b50be4f-12b0-4e76-9431-c356435fb7d5
+
+
+
 
 
 
