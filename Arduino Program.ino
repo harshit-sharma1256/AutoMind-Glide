@@ -1,443 +1,352 @@
-int i =0;
-unsigned long int j =0;
-   
-const int EnableL = 5;
-const int HighL = 6;       // LEFT SIDE MOTOR
-const int LowL =7;
-
-const int EnableR = 10;
-const int HighR = 8;       //RIGHT SIDE MOTOR
-const int LowR =9;
-
-const int D0 = 0;       //Raspberry pin 21    LSB
-const int D1 = 1;       //Raspberry pin 22
-const int D2 = 2;       //Raspberry pin 23
-const int D3 = 3;       //Raspberry pin 24    MSB
-
-int a,b,c,d,data;
-
-
-void setup() {
-
-pinMode(EnableL, OUTPUT);
-pinMode(HighL, OUTPUT);
-pinMode(LowL, OUTPUT);
-
-
-pinMode(EnableR, OUTPUT);
-pinMode(HighR, OUTPUT);
-pinMode(LowR, OUTPUT);
-
-pinMode(D0, INPUT_PULLUP);
-pinMode(D1, INPUT_PULLUP);
-pinMode(D2, INPUT_PULLUP);
-pinMode(D3, INPUT_PULLUP);
-
-
-}
-
-void Data()
-{
-   a = digitalRead(D0);
-   b = digitalRead(D1);
-   c = digitalRead(D2);
-   d = digitalRead(D3);
-
-   data = 8*d+4*c+2*b+a;
-}
-
-void Forward()
-{
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  analogWrite(EnableL,255);
-
-  digitalWrite(HighR, LOW);
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableR,255);
-  
-}
-
-
-void Backward()
-{
-  digitalWrite(HighL, HIGH);
-  digitalWrite(LowL, LOW);
-  analogWrite(EnableL,255);
-
-  digitalWrite(HighR, HIGH);
-  digitalWrite(LowR, LOW);
-  analogWrite(EnableR,255);
-  
-}
-
-void Stop()
-{
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  analogWrite(EnableL,0);
-
-  digitalWrite(HighR, LOW);
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableR,0);
-  
-}
-
-void Left1()
-{
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  analogWrite(EnableL,160);
-
-  digitalWrite(HighR, LOW);
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableR,255);
-  
-}
-
-void Left2()
-{
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  analogWrite(EnableL,90);
-
-  digitalWrite(HighR, LOW);
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableR,255);
-  
-}
-
-
-void Left3()
-{
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  analogWrite(EnableL,50);
-
-  digitalWrite(HighR, LOW);
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableR,255);
-  
-}
-
-void Right1()
-{
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  analogWrite(EnableL,255);
-
-  digitalWrite(HighR, LOW);
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableR,160);  //200
-  
-}
-void Right2()
-{
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  analogWrite(EnableL,255);
-
-  digitalWrite(HighR, LOW);
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableR,90);   //160
-  
-}
-
-void Right3()
-{
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  analogWrite(EnableL,255);
-
-  digitalWrite(HighR, LOW);
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableR,50);   //100
-  
-}
-
-void UTurn()
-{
-  analogWrite(EnableL, 0);
-  analogWrite(EnableR, 0);
-  delay(400);
-
-  analogWrite(EnableL, 250);
-  analogWrite(EnableR, 250);    //forward
-  delay(1000);
-
-  analogWrite(EnableL, 0);
-  analogWrite(EnableR, 0);
-  delay(400);
-
-  digitalWrite(HighL, HIGH);
-  digitalWrite(LowL, LOW);
-  digitalWrite(HighR, LOW);   //   left
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableL, 255);
-  analogWrite(EnableR, 255);
-  delay(700);
-
-  analogWrite(EnableL, 0);
-  analogWrite(EnableR, 0);
-  delay(400);
-
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  digitalWrite(HighR, LOW);   // forward
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableL, 255);
-  analogWrite(EnableR, 255);
-  delay(900);
-
-  analogWrite(EnableL, 0);
-  analogWrite(EnableR, 0);
-  delay(400);
-
-  digitalWrite(HighL, HIGH);
-  digitalWrite(LowL, LOW);
-  digitalWrite(HighR, LOW);    //left
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableL, 255);
-  analogWrite(EnableR, 255);
-  delay(700);
-
-
-  analogWrite(EnableL, 0);
-  analogWrite(EnableR, 0);
-  delay(1000);
-
-
-
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  digitalWrite(HighR, LOW);
-  digitalWrite(LowL, HIGH);
-  analogWrite(EnableL, 150);
-  analogWrite(EnableR, 150);
-  delay(300);
-}
-
-
-void Object()
-{
-
-  analogWrite(EnableL, 0);
-  analogWrite(EnableR, 0);            //stop
-  delay(1000);
-
-  digitalWrite(HighL, HIGH);
-  digitalWrite(LowL, LOW);
-  digitalWrite(HighR, LOW);
-  digitalWrite(LowR, HIGH);        //left
-  analogWrite(EnableL, 250);
-  analogWrite(EnableR, 250);
-  delay(500);
-
-  analogWrite(EnableL, 0);
-  analogWrite(EnableR, 0);            //stop
-  delay(200);
-
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);           //forward
-  digitalWrite(HighR, LOW);
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableL, 255);
-  analogWrite(EnableR, 255);
-  delay(1000);
-
-  analogWrite(EnableL, 0);           //stop
-  analogWrite(EnableR, 0);
-  delay(200);
-
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  digitalWrite(HighR, HIGH);         //right
-  digitalWrite(LowR, LOW);
-  analogWrite(EnableL, 255);
-  analogWrite(EnableR, 255);
-  delay(500);
-
-  analogWrite(EnableL, 0);               //stop
-  analogWrite(EnableR, 0);
-  delay(1000);
-
-  
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  digitalWrite(HighR, LOW);       // forward
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableL, 150);
-  analogWrite(EnableR, 150);
-  delay(500);
-
-   i  = i+1;
-}
-
-void Lane_Change()
-{
-
-  analogWrite(EnableL, 0);
-  analogWrite(EnableR, 0);            //stop
-  delay(1000);
-
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  digitalWrite(HighR, HIGH);
-  digitalWrite(LowR, LOW);        //Right
-  analogWrite(EnableL, 250);
-  analogWrite(EnableR, 250);
-  delay(500);
-
-  analogWrite(EnableL, 0);
-  analogWrite(EnableR, 0);            //stop
-  delay(200);
-
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);           //forward
-  digitalWrite(HighR, LOW);
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableL, 255);
-  analogWrite(EnableR, 255);
-  delay(800);
-
-  analogWrite(EnableL, 0);           //stop
-  analogWrite(EnableR, 0);
-  delay(200);
-
-  digitalWrite(HighL, HIGH);
-  digitalWrite(LowL, LOW);
-  digitalWrite(HighR, LOW);         //LEFT
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableL, 255);
-  analogWrite(EnableR, 255);
-  delay(500);
-
-  analogWrite(EnableL, 0);               //stop
-  analogWrite(EnableR, 0);
-  delay(1000);
-
-  
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
-  digitalWrite(HighR, LOW);       // forward
-  digitalWrite(LowR, HIGH);
-  analogWrite(EnableL, 150);
-  analogWrite(EnableR, 150);
-  delay(500);
-
-
-}
-
-
-void loop() 
-{
-    if (j > 25000)
-    {
-      Lane_Change();
-      i = 0;
-      j = 0;
-    }
-  
-  Data();
-  if(data==0)
-   {
-     Forward();
-     if (i>0)
-     {
-      j = j+1;
-     }
-   }
-   
-  else if(data==1)
-   {
-     Right1();
-          if (i>0)
-     {
-      j = j+1;
-     }
-   }
-     
-  else if(data==2)
-   {
-     Right2();
-          if (i>0)
-     {
-      j = j+1;
-     }
-   }
-     
-  else if(data==3)
-   {
-     Right3();
-          if (i>0)
-     {
-      j = j+1;
-     }
-   }
-     
-  else if(data==4)
-   {
-     Left1();
-          if (i>0)
-     {
-      j = j+1;
-     }
-   }
-    
-  else if(data==5)
-   {
-     Left2();
-          if (i>0)
-     {
-      j = j+1;
-     }
-   }
-    
-  else if(data==6)
-   {
-     Left3();
-          if (i>0)
-     {
-      j = j+1;
-     }
-   }
-     
-  else if(data==7)
-   {
-     UTurn();
-   }
-  
-  else if (data==8)
-   {
-      analogWrite(EnableL, 0);
-      analogWrite(EnableR, 0);
-      delay(4000);
-
-      analogWrite(EnableL, 150);
-      analogWrite(EnableR, 150);
-      delay(1000);
-   }
-
-      else if(data==9)
-   {
-     Object();
-   }
-
-         else if(data==10)
-   {
-      analogWrite(EnableL, 0);
-      analogWrite(EnableR, 0);
-      delay(2000);
-   }
-
-
-     else if(data>10)
-   {
-     Stop();
-   }
-
-
-   
-
-
-}
+import RPi.GPIO as GPIO
+import time
+
+# Pin definitions
+EnableL = 5
+HighL = 6       # LEFT SIDE MOTOR
+LowL = 7
+
+EnableR = 10
+HighR = 8       # RIGHT SIDE MOTOR
+LowR = 9
+
+D0 = 21       # Raspberry Pi GPIO pin 21    LSB
+D1 = 22       # Raspberry Pi GPIO pin 22
+D2 = 23       # Raspberry Pi GPIO pin 23
+D3 = 24       # Raspberry Pi GPIO pin 24    MSB
+
+# Initialize variables
+i = 0
+j = 0
+
+# Setup
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
+GPIO.setup(EnableL, GPIO.OUT)
+GPIO.setup(HighL, GPIO.OUT)
+GPIO.setup(LowL, GPIO.OUT)
+
+GPIO.setup(EnableR, GPIO.OUT)
+GPIO.setup(HighR, GPIO.OUT)
+GPIO.setup(LowR, GPIO.OUT)
+
+GPIO.setup(D0, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(D1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(D2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(D3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+pwmL = GPIO.PWM(EnableL, 1000)
+pwmR = GPIO.PWM(EnableR, 1000)
+pwmL.start(0)
+pwmR.start(0)
+
+def data():
+    a = GPIO.input(D0)
+    b = GPIO.input(D1)
+    c = GPIO.input(D2)
+    d = GPIO.input(D3)
+    return 8 * d + 4 * c + 2 * b + a
+
+def forward():
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(100)
+
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmR.ChangeDutyCycle(100)
+
+def backward():
+    GPIO.output(HighL, GPIO.HIGH)
+    GPIO.output(LowL, GPIO.LOW)
+    pwmL.ChangeDutyCycle(100)
+
+    GPIO.output(HighR, GPIO.HIGH)
+    GPIO.output(LowR, GPIO.LOW)
+    pwmR.ChangeDutyCycle(100)
+
+def stop():
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(0)
+
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmR.ChangeDutyCycle(0)
+
+def left1():
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(63)
+
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmR.ChangeDutyCycle(100)
+
+def left2():
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(35)
+
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmR.ChangeDutyCycle(100)
+
+def left3():
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(20)
+
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmR.ChangeDutyCycle(100)
+
+def right1():
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(100)
+
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmR.ChangeDutyCycle(63)
+
+def right2():
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(100)
+
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmR.ChangeDutyCycle(35)
+
+def right3():
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(100)
+
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmR.ChangeDutyCycle(20)
+
+def u_turn():
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(0.4)
+
+    pwmL.ChangeDutyCycle(98)
+    pwmR.ChangeDutyCycle(98)
+    time.sleep(1)
+
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(0.4)
+
+    GPIO.output(HighL, GPIO.HIGH)
+    GPIO.output(LowL, GPIO.LOW)
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(100)
+    pwmR.ChangeDutyCycle(100)
+    time.sleep(0.7)
+
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(0.4)
+
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(100)
+    pwmR.ChangeDutyCycle(100)
+    time.sleep(0.9)
+
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(0.4)
+
+    GPIO.output(HighL, GPIO.HIGH)
+    GPIO.output(LowL, GPIO.LOW)
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(100)
+    pwmR.ChangeDutyCycle(100)
+    time.sleep(0.7)
+
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(1)
+
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(59)
+    pwmR.ChangeDutyCycle(59)
+    time.sleep(0.3)
+
+def object_avoidance():
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(1)
+
+    GPIO.output(HighL, GPIO.HIGH)
+    GPIO.output(LowL, GPIO.LOW)
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(98)
+    pwmR.ChangeDutyCycle(98)
+    time.sleep(0.5)
+
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(0.2)
+
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(100)
+    pwmR.ChangeDutyCycle(100)
+    time.sleep(1)
+
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(0.2)
+
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    GPIO.output(HighR, GPIO.HIGH)
+    GPIO.output(LowR, GPIO.LOW)
+    pwmL.ChangeDutyCycle(100)
+    pwmR.ChangeDutyCycle(100)
+    time.sleep(0.5)
+
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(1)
+
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(59)
+    pwmR.ChangeDutyCycle(59)
+    time.sleep(0.5)
+
+    global i
+    i += 1
+
+def lane_change():
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(1)
+
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    GPIO.output(HighR, GPIO.HIGH)
+    GPIO.output(LowR, GPIO.LOW)
+    pwmL.ChangeDutyCycle(98)
+    pwmR.ChangeDutyCycle(98)
+    time.sleep(0.5)
+
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(0.2)
+
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(100)
+    pwmR.ChangeDutyCycle(100)
+    time.sleep(0.8)
+
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(0.2)
+
+    GPIO.output(HighL, GPIO.HIGH)
+    GPIO.output(LowL, GPIO.LOW)
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(100)
+    pwmR.ChangeDutyCycle(100)
+    time.sleep(0.5)
+
+    pwmL.ChangeDutyCycle(0)
+    pwmR.ChangeDutyCycle(0)
+    time.sleep(1)
+
+    GPIO.output(HighL, GPIO.LOW)
+    GPIO.output(LowL, GPIO.HIGH)
+    GPIO.output(HighR, GPIO.LOW)
+    GPIO.output(LowR, GPIO.HIGH)
+    pwmL.ChangeDutyCycle(59)
+    pwmR.ChangeDutyCycle(59)
+    time.sleep(0.5)
+
+def loop():
+    global i, j
+    while True:
+        if j > 25000:
+            lane_change()
+            i = 0
+            j = 0
+
+        data_value = data()
+        if data_value == 0:
+            forward()
+            if i > 0:
+                j += 1
+        elif data_value == 1:
+            right1()
+            if i > 0:
+                j += 1
+        elif data_value == 2:
+            right2()
+            if i > 0:
+                j += 1
+        elif data_value == 3:
+            right3()
+            if i > 0:
+                j += 1
+        elif data_value == 4:
+            left1()
+            if i > 0:
+                j += 1
+        elif data_value == 5:
+            left2()
+            if i > 0:
+                j += 1
+        elif data_value == 6:
+            left3()
+            if i > 0:
+                j += 1
+        elif data_value == 7:
+            u_turn()
+        elif data_value == 8:
+            pwmL.ChangeDutyCycle(0)
+            pwmR.ChangeDutyCycle(0)
+            time.sleep(4)
+            pwmL.ChangeDutyCycle(59)
+            pwmR.ChangeDutyCycle(59)
+            time.sleep(1)
+        elif data_value == 9:
+            object_avoidance()
+        elif data_value == 10:
+            pwmL.ChangeDutyCycle(0)
+            pwmR.ChangeDutyCycle(0)
+            time.sleep(2)
+        elif data_value > 10:
+            stop()
+
+try:
+    loop()
+except KeyboardInterrupt:
+    pass
+finally:
+    pwmL.stop()
+    pwmR.stop()
+    GPIO.cleanup()
