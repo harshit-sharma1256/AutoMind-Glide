@@ -80,7 +80,7 @@ pip install opencv-python-headless numpy picamera RPi.GPIO
 2.Ensure the cascade XML files are in the correct directory.
 3.Run the Python script:
 ```bash
-python main.py
+python auto.py
 ```
 4. The system will start capturing and processing images in real-time.
 5. Detected objects, lane markings, and driving decisions will be displayed on the screen.
@@ -88,7 +88,7 @@ python main.py
 
 ## Code Structure
 
-- `main.py`:  Main entry point of the program, contains the main logic for image processing, object detection, and driving decisions.
+- `auto.py`:  Main entry point of the program, contains the main logic for image processing, object detection, and driving decisions.
 - `cascade_files/`: Contains XML files for object detection using Haar cascades.
 
 ## Contributors
