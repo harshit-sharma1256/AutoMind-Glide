@@ -53,9 +53,10 @@ https://github.com/harshit-sharma1256/AutoMind-Glide/assets/91192069/2b50be4f-12
 
 ## Requirements
 
-- OpenCV 2.4.13 or later
-- Raspicam library
-- WiringPi library
+- OpenCV (cv2)
+- numpy
+- picamera
+- RPi.GPIO
 
 ## Installation
 
@@ -65,24 +66,30 @@ https://github.com/harshit-sharma1256/AutoMind-Glide/assets/91192069/2b50be4f-12
 git clone https://github.com/harshit-sharma1256/AutoMind-Glide.git
 ```
 
-2. Install OpenCV, Raspicam, and WiringPi libraries according to their respective documentation.
+2. Install the required Python libraries: 
 
-3. Run the code in your system.
+```bash
+pip install opencv-python-headless numpy picamera RPi.GPIO
+```
+
+4. Run the code in your system.
 
 ## Usage
 
-1. Connect the camera module to your Raspberry Pi.
-2. Run the compiled executable with appropriate arguments to set camera parameters.
-3. The system will start capturing and processing images in real-time.
-4. Detected objects, lane markings, and driving decisions will be displayed on the screen.
-5. IoT integration allows for controlling external devices based on detected conditions.
+1.Connect the camera module to your Raspberry Pi.
+2.Ensure the cascade XML files are in the correct directory.
+3.Run the Python script:
+```bash
+python main.py
+```
+4. The system will start capturing and processing images in real-time.
+5. Detected objects, lane markings, and driving decisions will be displayed on the screen.
+6. IoT integration allows for controlling external devices based on detected conditions.
 
 ## Code Structure
 
-- `main.cpp`: Main entry point of the program, contains the main logic for image processing, object detection, and driving decisions.
-- `utils.cpp`: Utility functions for camera setup, image processing, and object detection.
+- `main.cpp`:  Main entry point of the program, contains the main logic for image processing, object detection, and driving decisions.
 - `cascade_files/`: Contains XML files for object detection using Haar cascades.
-- `images/`: Placeholder directory for sample images.
 
 ## Contributors
 
