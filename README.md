@@ -88,7 +88,7 @@ python main.py
 
 ## Code Structure
 
-- `main.cpp`:  Main entry point of the program, contains the main logic for image processing, object detection, and driving decisions.
+- `main.py`:  Main entry point of the program, contains the main logic for image processing, object detection, and driving decisions.
 - `cascade_files/`: Contains XML files for object detection using Haar cascades.
 
 ## Contributors
